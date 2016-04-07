@@ -48,7 +48,7 @@ def chiffrer(key, filein, fileout):
    
     inp = list(inp)
     for i in range(len(inp)):
-        if inp[i] == ' ' or inp[i] == '\n':
+        if inp[i] in [' ', '\n', "'", '"']:
             continue
         if ord(inp[i]) + key <= ord('z'):
             inp[i] = chr(ord(inp[i]) + key)
@@ -81,7 +81,7 @@ def dechiffrer(filein, fileout):
 
     inp = inp.lower()
     for i in range(len(inp)):
-        if inp[i] == ' ' or inp[i] == '\n':
+        if inp[i] in [' ', '\n', '"', "'"]:
             continue
         freq[ord(inp[i]) - ord('a')] += 1
     for i in range(26):
